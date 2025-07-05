@@ -13,6 +13,5 @@ class CreditCardHolderInfoDTO
         public readonly string $phone,
         public readonly string $mobilePhone,
         public readonly ?string $addressComplement = null,
-    ) {
-    }
+    ) {}
 }

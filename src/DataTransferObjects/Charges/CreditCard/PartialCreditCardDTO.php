@@ -15,14 +15,14 @@ class PartialCreditCardDTO
         public readonly CreditCardHolderInfoDTO $creditCardHolderInfoDTO,
         public readonly BillingTypeEnum $billingType = BillingTypeEnum::CREDIT_CARD,
         public string $dueDate = '',
-        public string $removeIP = '',
+        public string $remoteIP = '',
     ) {
         if (blank($this->dueDate)) {
             $this->dueDate = \Carbon\Carbon::now()->addDays(3)->format('Y-m-d');
         }
 
-        if (blank($this->removeIP)) {
-            $this->removeIP = get_remote_ip();
+        if (blank($this->remoteIP)) {
+            $this->remoteIP = get_remote_ip();
         }
     }
 }
