@@ -13,7 +13,7 @@ class TokenChargeByCreditCard implements AsaasInterface
 
     public function getPath(): string
     {
-        return 'tokenizeCreditCard';
+        return 'creditCard/tokenizeCreditCard';
     }
 
     /** @return array<string, array<string, string|null>|float|int|string> */
