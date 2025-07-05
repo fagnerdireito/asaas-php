@@ -7,11 +7,13 @@ namespace TioJobs\AsaasPhp\Resource;
 use TioJobs\AsaasPhp\DataTransferObjects\Charges\Billet\DirectBilletDTO;
 use TioJobs\AsaasPhp\DataTransferObjects\Charges\CreditCard\DirectCreditCardDTO;
 use TioJobs\AsaasPhp\DataTransferObjects\Charges\CreditCard\PartialCreditCardDTO;
+use TioJobs\AsaasPhp\DataTransferObjects\Charges\CreditCard\TokenCreditCardDTO;
 use TioJobs\AsaasPhp\DataTransferObjects\Charges\Pix\DynamicPixDTO;
 use TioJobs\AsaasPhp\DataTransferObjects\Charges\Pix\StaticPixDTO;
 use TioJobs\AsaasPhp\Endpoints\Charges\Billet\DirectChargeByBillet;
 use TioJobs\AsaasPhp\Endpoints\Charges\CreditCard\DirectChargeByCreditCard;
 use TioJobs\AsaasPhp\Endpoints\Charges\CreditCard\PartialChargeByCreditCard;
+use TioJobs\AsaasPhp\Endpoints\Charges\CreditCard\TokenChargeByCreditCard;
 use TioJobs\AsaasPhp\Endpoints\Charges\Pix\ChargeByDynamicPix;
 use TioJobs\AsaasPhp\Endpoints\Charges\Pix\ChargeByStaticPix;
 use TioJobs\AsaasPhp\Endpoints\Charges\Pix\ChargeQrCodePix;
@@ -45,6 +47,14 @@ class ChargeResource extends Resource
     public function partialCreditCard(PartialCreditCardDTO $DTO): array
     {
         return $this->asaas->post(new PartialChargeByCreditCard($DTO));
+    }
+
+    /**
+     * @return array<string, mixed>
+     */
+    public function tokenCreditCard(TokenCreditCardDTO $DTO): array
+    {
+        return $this->asaas->post(new TokenChargeByCreditCard($DTO));
     }
 
     /**
